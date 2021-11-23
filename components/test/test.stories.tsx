@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react"
+import type { Meta, Story } from "@storybook/react"
 
 import { Test } from "./test"
 
@@ -7,6 +7,6 @@ export default {
   component: Test,
 } as Meta
 
-const Template = args => <Test {...args} />
+const Template: Story = args => <Test {...args} />
 
 export const Primary = Template.bind({})
