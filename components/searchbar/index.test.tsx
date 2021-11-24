@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import { SearchBar } from "."
 
-describe("<HeaderSection />", () => {
+describe("<SearchBar />", () => {
   it("should render without any crash", () => {
     render(<SearchBar />)
   })
