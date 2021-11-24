@@ -7,9 +7,12 @@ import type { ShoppingCartButtonProps } from "./type"
 
 export function ShoppingCartButton({
   openCart = false,
+  className,
 }: ShoppingCartButtonProps) {
   return (
-    <div className="bg-burnt-sienna flex justify-center items-center rounded py-4 px-5">
+    <div
+      className={`bg-burnt-sienna flex justify-center items-center rounded py-4 px-5 ${className}`}
+    >
       <Image
         src={openCart ? crossIcon : shoppingBagIcon}
         width={20}
