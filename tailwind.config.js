@@ -13,6 +13,9 @@ module.exports = {
         "steel-gray": "#1F1D2B",
         "black-lighter": "rgba(0, 0, 0, 0.7)",
       },
+      divideColor: {
+        "white-darker": "rgba(255, 255, 255, 0.08)",
+      },
     },
   },
   variants: {
