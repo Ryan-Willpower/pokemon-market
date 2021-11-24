@@ -10,7 +10,7 @@ export function SearchBar({ className }: SearchBarProps) {
         <Image src={searchIcon} width={20} height={20} alt="search icon" />
       </div>
       <input
-        className="bg-transparent p-4 pl-12 border rounded border-solid outline-none border-white-darker focus:border-white focus:text-white"
+        className="bg-transparent p-3 pl-12 border rounded border-solid outline-none border-white-darker focus:border-white focus:text-white w-full"
         placeholder="Search by Name"
       />
     </div>
