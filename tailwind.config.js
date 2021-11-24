@@ -16,6 +16,9 @@ module.exports = {
       divideColor: {
         "white-darker": "rgba(255, 255, 255, 0.08)",
       },
+      borderColor: {
+        "white-darker": "rgba(255, 255, 255, 0.08)",
+      },
     },
   },
   variants: {
