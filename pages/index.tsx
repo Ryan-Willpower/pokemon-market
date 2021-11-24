@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
         <main>
           <div className="flex flex-wrap justify-between items-center">
-            <h1 className="text-xl my-4 w-full md:w-auto">Choose card</h1>
+            <h1 className="text-xl my-8 w-full md:w-auto">Choose card</h1>
             <div className="flex gap-2">
               <Filter name="Set" data={["some long text", "b", "c"]} />
               <Filter name="Rarity" data={["a", "b", "c"]} />
