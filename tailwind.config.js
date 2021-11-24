@@ -18,6 +18,7 @@ module.exports = {
       },
       borderColor: {
         "white-darker": "rgba(255, 255, 255, 0.08)",
+        "bright-gray": "#393C49",
       },
     },
   },
