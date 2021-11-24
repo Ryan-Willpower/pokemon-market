@@ -1,4 +1,5 @@
 import "tailwindcss/tailwind.css"
+import "../styles/story-font.scss"
 import * as nextImage from "next/image"
 
 Object.defineProperty(nextImage, "default", {
