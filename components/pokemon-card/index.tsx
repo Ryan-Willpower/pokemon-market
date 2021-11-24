@@ -15,7 +15,7 @@ export function PokemonCard(props: PokemonCardProps) {
           layout="fill"
         />
       </div>
-      <div className="rounded-lg p-4 pt-8 bg-steel-gray text-white-darker font-poppins flex flex-col items-center">
+      <div className="rounded-lg p-4 pt-8 bg-steel-gray font-poppins flex flex-col items-center">
         <h1 className="font-normal text-base pb-2">{props.name}</h1>
         <div className="flex justify-center text-tower-gray w-full text-sm pb-2">
           <p className="pr-4">$ {props.price}</p>
