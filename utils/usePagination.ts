@@ -60,7 +60,6 @@ export function useCardPagination() {
   }, [cards])
 
   const handleNameSearch = debounce((text: string) => {
-    console.log(text)
     setName(text)
   }, 500)
 
