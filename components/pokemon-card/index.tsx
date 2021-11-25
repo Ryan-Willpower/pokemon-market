@@ -19,7 +19,9 @@ export function PokemonCard(props: PokemonCardProps) {
         />
       </div>
       <div className="rounded-lg p-4 pt-20 bg-steel-gray font-poppins flex flex-col items-center">
-        <h1 className="font-normal text-xl pb-8 text-white">{props.name}</h1>
+        <h1 className="font-normal text-xl pb-8 text-white text-center">
+          {props.name}
+        </h1>
         <div className="flex justify-center gap-3 text-tower-gray w-full text-sm pb-2">
           <p>$ {props.price}</p>
           {props.cardTotals > 0 ? (
