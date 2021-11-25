@@ -1,11 +1,14 @@
 import Head from "next/head"
 
 import { Filter, FilterDropdownPosition } from "../components/filter"
-import { HeaderSection } from "../components/header-section"
 import { PokemonCard } from "../components/pokemon-card"
 import { Pagination } from "../components/pagination"
 import { useCardPagination } from "../utils/usePagination"
 import { ShoppingCartOverlay } from "../components/shopping-cart-overlay"
+import { SearchBar } from "../components/searchbar"
+import { ShoppingCartButton } from "../components/shopping-cart-button"
+import { useContext } from "react"
+import { CartContext } from "../utils/cart"
 
 const Home = () => {
   const {
@@ -13,8 +16,9 @@ const Home = () => {
     pageIndex,
     setPageIndex,
     pageCount,
-    filter: { sets, types, rarities, setFilter },
+    filter: { name, sets, types, rarities, setFilter, handleNameSearch },
   } = useCardPagination()
+  const { setOpenCartStatus } = useContext(CartContext)
 
   return (
     <div className="relative">
@@ -25,7 +29,18 @@ const Home = () => {
       </Head>
 
       <div className="container px-4 py-2 sm:px-auto mx-auto w-full divide-y divide-white-darker">
-        <HeaderSection />
+        <header className="flex flex-wrap md:flex-nowrap justify-between my-2 gap-4">
+          <h1 className="order-1 text-2xl font-medium flex items-center md:flex-grow md:w-full">
+            Pokemon market
+          </h1>
+          <SearchBar
+            onChange={text => handleNameSearch(text)}
+            className="order-3 md:order-2 flex-grow md:flex-grow-0 md:flex-shrink w-full md:w-6/12 flex items-center"
+          />
+          <div className="order-2 md:order-3 flex items-center justify-end">
+            <ShoppingCartButton onClick={() => setOpenCartStatus(true)} />
+          </div>
+        </header>
 
         <main>
           <div className="flex flex-wrap justify-between items-center">
