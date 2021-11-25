@@ -9,6 +9,6 @@ export default {
 
 export const Primary: Story = () => (
   <div className="p-5 bg-steel-gray font-poppins text-white">
-    <SearchBar />
+    <SearchBar onChange={() => {}} />
   </div>
 )

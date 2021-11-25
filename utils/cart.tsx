@@ -11,7 +11,7 @@ interface InitialCartContextState {
   setAmount: React.Dispatch<React.SetStateAction<Amount>>
 }
 
-const initialState: InitialCartContextState = {
+export const initialState: InitialCartContextState = {
   cart: [] as Card[],
   isOpenCart: false,
   amount: {} as Amount,
