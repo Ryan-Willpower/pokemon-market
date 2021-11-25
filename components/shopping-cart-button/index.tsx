@@ -8,10 +8,12 @@ import type { ShoppingCartButtonProps } from "./type"
 export function ShoppingCartButton({
   openCart = false,
   className,
+  onClick,
 }: ShoppingCartButtonProps) {
   return (
     <div
       className={`bg-burnt-sienna flex justify-center items-center rounded w-12 h-12 ${className}`}
+      onClick={onClick}
     >
       <Image
         src={openCart ? crossIcon : shoppingBagIcon}
