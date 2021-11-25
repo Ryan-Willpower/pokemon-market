@@ -86,13 +86,19 @@ const Home = () => {
           />
 
           {cards ? (
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-              {cards.data.map(card => (
-                <PokemonCard key={card.id} card={card} />
-              ))}
-            </div>
+            cards.data.length > 0 ? (
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+                {cards.data.map(card => (
+                  <PokemonCard key={card.id} card={card} />
+                ))}
+              </div>
+            ) : (
+              <div className="py-5 flex justify-center container">
+                Data is not found :(
+              </div>
+            )
           ) : (
-            <div className="py-5 mx-auto container">...Loading</div>
+            <div className="py-5 flex justify-center container">...Loading</div>
           )}
 
           <Pagination
