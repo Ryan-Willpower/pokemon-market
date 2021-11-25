@@ -1,10 +1,22 @@
-import type { NextPage } from "next"
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next"
 import Head from "next/head"
+import axios from "axios"
+import useSWR from "swr"
+
 import { Filter, FilterDropdownPosition } from "../components/filter"
-
 import { HeaderSection } from "../components/header-section"
+import { CardsResponse } from "../@types/pokemon"
+import { PokemonCard } from "../components/pokemon-card"
+import { useState } from "react"
+import { pokemonTCGFetcher } from "../utils/fetcher"
 
-const Home: NextPage = () => {
+const Home = () => {
+  const [pageIndex, setPageIndex] = useState(1)
+  const { data: cards, error } = useSWR<CardsResponse>(
+    `/cards?page=${pageIndex}&pageSize=20`,
+    pokemonTCGFetcher
+  )
+
   return (
     <>
       <Head>
@@ -29,6 +41,22 @@ const Home: NextPage = () => {
               />
             </div>
           </div>
+
+          {cards ? (
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+              {cards.data.map(card => (
+                <PokemonCard
+                  key={card.id}
+                  image={{ url: card.images.large, alt: card.name }}
+                  name={card.name}
+                  price={card.cardmarket.prices.averageSellPrice}
+                  cardTotals={card.set.total}
+                />
+              ))}
+            </div>
+          ) : (
+            <div>Empty</div>
+          )}
         </main>
       </div>
     </>
