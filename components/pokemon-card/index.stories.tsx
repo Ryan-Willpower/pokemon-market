@@ -10,18 +10,23 @@ export default {
 } as Meta
 
 export const Primary: Story = () => (
-  <PokemonCard
-    image={{
-      url: mockPokemonData.data[0].images.small,
-      alt: mockPokemonData.data[0].name,
-    }}
-    name={mockPokemonData.data[0].name}
-    price={mockPokemonData.data[0].cardmarket.prices.averageSellPrice}
-    cardTotals={mockPokemonData.data[0].set.total}
-  />
+  <div className="w-96 bg-ebony-clay p-6">
+    <PokemonCard
+      image={{
+        url: mockPokemonData.data[0].images.large,
+        alt: mockPokemonData.data[0].name,
+      }}
+      name={mockPokemonData.data[0].name}
+      price={mockPokemonData.data[0].cardmarket.prices.averageSellPrice}
+      cardTotals={mockPokemonData.data[0].set.total}
+    />
+  </div>
 )
 
 Primary.storyName = "1 Card on page"
+Primary.parameters = {
+  layout: "centered",
+}
 
 export const Secondary: Story = () => (
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 sm:gap-4">
@@ -29,7 +34,7 @@ export const Secondary: Story = () => (
       <PokemonCard
         key={index}
         image={{
-          url: mockPokemonData.data[0].images.small,
+          url: mockPokemonData.data[0].images.large,
           alt: mockPokemonData.data[0].name,
         }}
         name={mockPokemonData.data[0].name}
@@ -39,3 +44,5 @@ export const Secondary: Story = () => (
     ))}
   </div>
 )
+
+Secondary.storyName = "20 Cards on page"
