@@ -1,4 +1,6 @@
 import Image from "next/image"
+import { useContext } from "react"
+import { CartContext } from "../../utils/cart"
 import { AddToCartButton } from "../add-to-cart-button"
 
 import "./index.module.scss"
@@ -6,6 +8,12 @@ import "./index.module.scss"
 import type { PokemonCardProps } from "./type"
 
 export function PokemonCard({ card }: PokemonCardProps) {
+  const { setCart } = useContext(CartContext)
+
+  const handleAddCardToShoppingCart = () => {
+    setCart(prev => [...prev, card])
+  }
+
   return (
     <div>
       <div className="max-w-200px mx-auto transform translate-y-16">
@@ -30,7 +38,10 @@ export function PokemonCard({ card }: PokemonCardProps) {
             <p>Out of stock</p>
           )}
         </div>
-        <AddToCartButton isDisable={card.set.total <= 0} />
+        <AddToCartButton
+          isDisable={card.set.total <= 0}
+          onClick={handleAddCardToShoppingCart}
+        />
       </div>
     </div>
   )
