@@ -24,6 +24,9 @@ module.exports = {
         "white-darker": "rgba(255, 255, 255, 0.08)",
         "bright-gray": "#393C49",
       },
+      maxWidth: {
+        "200px": "200px",
+      },
     },
   },
   variants: {

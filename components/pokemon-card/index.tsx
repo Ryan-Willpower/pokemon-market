@@ -7,13 +7,15 @@ import type { PokemonCardProps } from "./type"
 
 export function PokemonCard(props: PokemonCardProps) {
   return (
-    <div className="pokemonCard">
-      <div className="flex justify-center transform translate-y-16">
+    <div>
+      <div className="max-w-200px mx-auto transform translate-y-16">
         <Image
-          className="cardImage rounded"
+          className="rounded"
           src={props.image.url}
           alt={props.image.alt}
-          layout="fill"
+          layout="responsive"
+          width={200}
+          height={300}
         />
       </div>
       <div className="rounded-lg p-4 pt-20 bg-steel-gray font-poppins flex flex-col items-center">
