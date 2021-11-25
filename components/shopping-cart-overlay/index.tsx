@@ -87,7 +87,7 @@ export function ShoppingCartOverlay() {
               </div>
             </div>
 
-            <button className="w-full py-3 rounded-lg bg-burnt-sienna text-sm">
+            <button className="w-full py-3 rounded-lg bg-burnt-sienna shadow-burnt-sienna-button text-sm">
               Continue to Payment
             </button>
           </footer>
