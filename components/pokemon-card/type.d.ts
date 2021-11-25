@@ -1,11 +1,5 @@
-export interface PokemonCardProps {
-  image: Image
-  name: string
-  price: number
-  cardTotals: number
-}
+import { Card } from "../../@types/pokemon"
 
-export interface Image {
-  url: string
-  alt: string
+export interface PokemonCardProps {
+  card: Card
 }

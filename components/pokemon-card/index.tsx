@@ -1,18 +1,35 @@
 import Image from "next/image"
+import { useContext } from "react"
+import { CartContext } from "../../utils/cart"
 import { AddToCartButton } from "../add-to-cart-button"
 
 import "./index.module.scss"
 
 import type { PokemonCardProps } from "./type"
 
-export function PokemonCard(props: PokemonCardProps) {
+export function PokemonCard({ card }: PokemonCardProps) {
+  const { setCart, setAmount } = useContext(CartContext)
+
+  const handleAddCardToShoppingCart = () => {
+    setCart(prev => [...prev, card])
+
+    setAmount(prev => ({
+      ...prev,
+      [card.id]: {
+        total: 1,
+        inStock: card.set.total,
+        price: card.cardmarket.prices.averageSellPrice,
+      },
+    }))
+  }
+
   return (
     <div>
       <div className="max-w-200px mx-auto transform translate-y-16">
         <Image
           className="rounded"
-          src={props.image.url}
-          alt={props.image.alt}
+          src={card.images.large}
+          alt={card.name}
           layout="responsive"
           width={200}
           height={300}
@@ -20,17 +37,20 @@ export function PokemonCard(props: PokemonCardProps) {
       </div>
       <div className="rounded-lg p-4 pt-20 bg-steel-gray font-poppins flex flex-col items-center">
         <h1 className="font-normal text-xl pb-8 text-white text-center">
-          {props.name}
+          {card.name}
         </h1>
         <div className="flex justify-center gap-3 text-tower-gray w-full text-sm pb-2">
-          <p>$ {props.price}</p>
-          {props.cardTotals > 0 ? (
-            <p>{props.cardTotals} Card(s)</p>
+          <p>$ {card.cardmarket.prices.averageSellPrice}</p>
+          {card.set.total > 0 ? (
+            <p>{card.set.total} Card(s)</p>
           ) : (
             <p>Out of stock</p>
           )}
         </div>
-        <AddToCartButton isDisable={props.cardTotals <= 0} />
+        <AddToCartButton
+          isDisable={card.set.total <= 0}
+          onClick={handleAddCardToShoppingCart}
+        />
       </div>
     </div>
   )
