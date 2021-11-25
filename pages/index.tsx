@@ -8,7 +8,13 @@ import { useCardPagination } from "../utils/usePagination"
 import { ShoppingCartOverlay } from "../components/shopping-cart-overlay"
 
 const Home = () => {
-  const { cards, pageIndex, setPageIndex, pageCount } = useCardPagination()
+  const {
+    cards,
+    pageIndex,
+    setPageIndex,
+    pageCount,
+    filter: { sets, types, rarities, setFilter },
+  } = useCardPagination()
 
   return (
     <div className="relative">
@@ -25,13 +31,34 @@ const Home = () => {
           <div className="flex flex-wrap justify-between items-center">
             <h1 className="text-xl my-8 w-full md:w-auto">Choose card</h1>
             <div className="flex gap-2">
-              <Filter name="Set" data={["some long text", "b", "c"]} />
-              <Filter name="Rarity" data={["a", "b", "c"]} />
-              <Filter
-                name="Type"
-                data={["a", "b", "c"]}
-                position={FilterDropdownPosition.Right}
-              />
+              {sets && (
+                <Filter
+                  name="Set"
+                  data={sets.data.map(set => set.name).sort()}
+                  onUpdateFilter={value =>
+                    setFilter(prev => ({ ...prev, set: value }))
+                  }
+                />
+              )}
+              {rarities && (
+                <Filter
+                  name="Rarity"
+                  data={rarities.data}
+                  onUpdateFilter={value =>
+                    setFilter(prev => ({ ...prev, rarity: value }))
+                  }
+                />
+              )}
+              {types && (
+                <Filter
+                  name="Type"
+                  data={types.data}
+                  position={FilterDropdownPosition.Right}
+                  onUpdateFilter={value =>
+                    setFilter(prev => ({ ...prev, type: value }))
+                  }
+                />
+              )}
             </div>
           </div>
 

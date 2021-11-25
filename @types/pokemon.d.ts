@@ -38,3 +38,29 @@ export interface Card extends PokemonTCG.Card {
 export interface CardsResponse extends Pagination {
   data: Card[]
 }
+
+export interface PokemonSet {
+  id: string
+  name: string
+  series: string
+  printedTotal: number
+  total: number
+  legalities: {
+    [key: string]: string
+  }
+  ptcgoCode: string
+  releaseDate: string
+  updatedAt: string
+  images: {
+    symbol: string
+    logo: string
+  }
+}
+
+export interface SetResponse extends Pagination {
+  data: PokemonSet[]
+}
+
+export interface StringResponse {
+  data: string[]
+}

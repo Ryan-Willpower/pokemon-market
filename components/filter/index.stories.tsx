@@ -21,6 +21,7 @@ export const Primary = Template.bind({})
 Primary.args = {
   name: "set",
   data: ["set a", "set b", "set c", "set d"],
+  onUpdateFilter: () => {},
 }
 Primary.storyName = "Left side"
 
@@ -29,5 +30,6 @@ Secondary.args = {
   name: "set",
   data: ["set a", "set b", "set c", "set d"],
   position: FilterDropdownPosition.Right,
+  onUpdateFilter: () => {},
 }
 Secondary.storyName = "Right side"

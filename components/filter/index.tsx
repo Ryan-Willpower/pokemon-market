@@ -15,8 +15,14 @@ export function Filter({
   name,
   data,
   position = FilterDropdownPosition.Left,
+  onUpdateFilter,
 }: FilterProps) {
   const [selectedFilter, setFilter] = useState<string>()
+
+  const handleFilterChange = (item: string) => {
+    setFilter(item)
+    onUpdateFilter(item)
+  }
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -53,7 +59,7 @@ export function Filter({
             <Menu.Item key={item}>
               <span
                 className="cursor-pointer font-poppins border border-bright-gray p-3"
-                onClick={() => setFilter(item)}
+                onClick={() => handleFilterChange(item)}
               >
                 {item}
               </span>

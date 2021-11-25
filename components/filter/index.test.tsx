@@ -3,11 +3,23 @@ import { Filter } from "."
 
 describe("<Filter />", () => {
   it("should render without any crash", () => {
-    render(<Filter name="set" data={["set a", "set b", "set c"]} />)
+    render(
+      <Filter
+        name="set"
+        data={["set a", "set b", "set c"]}
+        onUpdateFilter={() => {}}
+      />
+    )
   })
 
   it("should display selected data", async () => {
-    render(<Filter name="set" data={["set a", "set b", "set c"]} />)
+    render(
+      <Filter
+        name="set"
+        data={["set a", "set b", "set c"]}
+        onUpdateFilter={() => {}}
+      />
+    )
 
     fireEvent.click(screen.getByText("set"))
 
