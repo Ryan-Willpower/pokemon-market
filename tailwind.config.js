@@ -29,6 +29,8 @@ module.exports = {
   variants: {
     extend: {
       borderColor: ["group-focus"],
+      opacity: ["disabled"],
+      cursor: ["disabled"],
     },
   },
   plugins: [],
