@@ -3,7 +3,8 @@ import { render, screen } from "@testing-library/react"
 
 import { PokemonCard } from "."
 import { mockPokemonData } from "../../__mocks__/dataMock"
-import { Card } from "../../@types/pokemon"
+
+import type { Card } from "../../@types/pokemon"
 
 describe("<PokemonCard />", () => {
   it("should renders a component without crash", () => {

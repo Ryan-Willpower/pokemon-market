@@ -1,6 +1,8 @@
 import Image from "next/image"
 import { useContext } from "react"
+
 import { CartContext } from "../../utils/cart"
+
 import type { CartItemProps } from "./type"
 
 export function CartItem({ item }: CartItemProps) {

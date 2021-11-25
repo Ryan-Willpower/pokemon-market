@@ -12,7 +12,7 @@ export function ShoppingCartButton({
 }: ShoppingCartButtonProps) {
   return (
     <div
-      className={`bg-burnt-sienna flex justify-center items-center rounded w-12 h-12 ${className}`}
+      className={`bg-burnt-sienna shadow-burnt-sienna-button flex justify-center items-center rounded w-12 h-12 cursor-pointer ${className}`}
       onClick={onClick}
     >
       <Image

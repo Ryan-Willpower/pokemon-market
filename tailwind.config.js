@@ -27,6 +27,9 @@ module.exports = {
       maxWidth: {
         "200px": "200px",
       },
+      boxShadow: {
+        "burnt-sienna-button": "0px 8px 24px 0px rgba(234, 124, 105, 0.32)",
+      },
     },
   },
   variants: {

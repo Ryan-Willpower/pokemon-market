@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Front-end Take-home Assignment
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This is "Front-end Take-home Assignment" which a theme is "Pokemon Market". Using using API endpoints given at [https://pokemontcg.io/](https://pokemontcg.io/).
 
-```bash
-npm run dev
-# or
-yarn dev
+I use Next.js with TypeScript, and Tailwind which I like to use in every project.
+
+The most dificult part is setup Storybook because it is my first time using it.
+
+And the most challenge part is unit test, I rarely write tests at frontend part.
+
+Thank you for give me a fun and entertaining challenge, this project makes me growth a lot.
+
+## Design
+
+[Link to design](https://www.figma.com/file/OvbAJ7yvTzB3Yk8oIwSycd/Pokemon-Card-Market?node-id=7%3A37564)
+
+## Stack
+
+### Development
+
+- Next.js with TypeScript
+- Storybook
+
+### Styling
+
+- TailwindCSS
+- scss
+
+### Testing
+
+- Jest
+- React Test Renderer
+
+## How to run this project
+
+- install dependencies
+
+```sh
+yarn install or npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- set `pokemon tcg` API key in your `.env.local` file (if you can't find your `.env.local` file, just create one)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```env
+# Take a look at `.env.example`
+NEXT_PUBLIC_POKEMONTCG_API_KEY=your_key_here
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- run project
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+yarn dev or npm run dev
+```
 
-## Learn More
+- run test
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+yarn jest or npm run jest
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- run Storybook
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```sh
+yarn storybook or npm run storybook
+```
