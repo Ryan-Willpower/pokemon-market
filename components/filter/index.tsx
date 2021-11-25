@@ -1,10 +1,10 @@
 import Image from "next/image"
+import { Fragment, useState } from "react"
 import { Menu, Transition } from "@headlessui/react"
 
 import arrowDownIcon from "../../public/icons/arrow-down.svg"
 
 import type { FilterProps } from "./type"
-import { Fragment, useState } from "react"
 
 export enum FilterDropdownPosition {
   Left = "left",

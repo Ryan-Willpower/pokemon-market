@@ -1,7 +1,7 @@
 import { AddToCartButton } from "."
 
 import type { Meta, Story } from "@storybook/react"
-import { AddToCartButtonProps } from "./type"
+import type { AddToCartButtonProps } from "./type"
 
 export default {
   title: "Components/AddToCartButton",

@@ -1,8 +1,10 @@
 import React from "react"
 import { render } from "@testing-library/react"
+
 import { CartItem } from "."
-import { Card } from "../../@types/pokemon"
 import { mockPokemonData } from "../../__mocks__/dataMock"
+
+import type { Card } from "../../@types/pokemon"
 
 jest.mock("react")
 

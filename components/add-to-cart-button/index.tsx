@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import shoppingBagIcon from "../../public/icons/shopping-bag.svg"
-import { AddToCartButtonProps } from "./type"
+import type { AddToCartButtonProps } from "./type"
 
 export function AddToCartButton({
   isDisable = false,

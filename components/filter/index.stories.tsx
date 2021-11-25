@@ -1,7 +1,7 @@
 import { Filter, FilterDropdownPosition } from "."
 
 import type { Meta, Story } from "@storybook/react"
-import { FilterProps } from "./type"
+import type { FilterProps } from "./type"
 
 export default {
   title: "Components/Filter",

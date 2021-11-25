@@ -15,7 +15,7 @@ export default {
 
 const Template: Story<PaginationProps> = () => {
   const [pageIndex, setPageIndex] = useState(1)
-  const [pageCount, setPageCount] = useState(4)
+  const [pageCount, _] = useState(4)
 
   return (
     <div className="bg-ebony-clay font-poppins text-white p-12">

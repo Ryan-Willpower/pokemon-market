@@ -2,7 +2,8 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 
 import searchIcon from "../../public/icons/search.png"
-import { SearchBarProps } from "./type"
+
+import type { SearchBarProps } from "./type"
 
 export function SearchBar({ className, onChange }: SearchBarProps) {
   const [searchText, setSearchText] = useState("")

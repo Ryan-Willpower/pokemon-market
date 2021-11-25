@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useContext } from "react"
+
 import { CartContext } from "../../utils/cart"
 import { AddToCartButton } from "../add-to-cart-button"
 

@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { useContext } from "react"
 
 import { Filter, FilterDropdownPosition } from "../components/filter"
 import { PokemonCard } from "../components/pokemon-card"
@@ -7,7 +8,6 @@ import { useCardPagination } from "../utils/usePagination"
 import { ShoppingCartOverlay } from "../components/shopping-cart-overlay"
 import { SearchBar } from "../components/searchbar"
 import { ShoppingCartButton } from "../components/shopping-cart-button"
-import { useContext } from "react"
 import { CartContext } from "../utils/cart"
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
     pageIndex,
     setPageIndex,
     pageCount,
-    filter: { name, sets, types, rarities, setFilter, handleNameSearch },
+    filter: { sets, types, rarities, setFilter, handleNameSearch },
   } = useCardPagination()
   const { setOpenCartStatus } = useContext(CartContext)
 
@@ -29,6 +29,7 @@ const Home = () => {
       </Head>
 
       <div className="container px-4 py-2 sm:px-auto mx-auto w-full divide-y divide-white-darker">
+        {/* Header Section */}
         <header className="flex flex-wrap md:flex-nowrap justify-between my-2 gap-4">
           <h1 className="order-1 text-2xl font-medium flex items-center md:flex-grow md:w-full">
             Pokemon market
@@ -42,6 +43,7 @@ const Home = () => {
           </div>
         </header>
 
+        {/* Main Section */}
         <main>
           <div className="flex flex-wrap justify-between items-center">
             <h1 className="text-xl my-8 w-full md:w-auto">Choose card</h1>
@@ -101,6 +103,7 @@ const Home = () => {
         </main>
       </div>
 
+      {/* Shopping Cart */}
       <ShoppingCartOverlay />
     </div>
   )

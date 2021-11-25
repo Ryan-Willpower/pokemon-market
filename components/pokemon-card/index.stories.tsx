@@ -1,5 +1,4 @@
 import { PokemonCard } from "."
-
 import { mockPokemonData } from "../../__mocks__/dataMock"
 
 import type { Meta, Story } from "@storybook/react"

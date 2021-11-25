@@ -1,4 +1,4 @@
-import { PaginationProps } from "./type"
+import type { PaginationProps } from "./type"
 
 export function Pagination({ setPage, pageCount, pageIndex }: PaginationProps) {
   return (
