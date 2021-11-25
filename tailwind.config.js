@@ -12,6 +12,10 @@ module.exports = {
         "tower-gray": "#ABBBC2",
         "steel-gray": "#1F1D2B",
         "black-lighter": "rgba(0, 0, 0, 0.7)",
+        "white-transparent": {
+          DEFAULT: "rgba(255, 255, 255, 0.08)",
+          dark: "rgba(255, 255, 255, 0.18)",
+        },
       },
       divideColor: {
         "white-darker": "rgba(255, 255, 255, 0.08)",
