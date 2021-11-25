@@ -21,7 +21,7 @@ export function useCardPagination() {
     const queryList: string[] = []
 
     if (name) {
-      queryList.push(`name:"${name}"`)
+      queryList.push(`name:"${name}*"`)
     }
 
     if (filter.set) {
