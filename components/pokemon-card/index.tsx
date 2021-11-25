@@ -4,8 +4,6 @@ import { useContext } from "react"
 import { CartContext } from "../../utils/cart"
 import { AddToCartButton } from "../add-to-cart-button"
 
-import "./index.module.scss"
-
 import type { PokemonCardProps } from "./type"
 
 export function PokemonCard({ card }: PokemonCardProps) {
