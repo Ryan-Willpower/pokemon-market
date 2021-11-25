@@ -1,21 +1,14 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next"
 import Head from "next/head"
-import axios from "axios"
 import useSWR from "swr"
 
 import { Filter, FilterDropdownPosition } from "../components/filter"
 import { HeaderSection } from "../components/header-section"
-import { CardsResponse } from "../@types/pokemon"
 import { PokemonCard } from "../components/pokemon-card"
-import { useState } from "react"
-import { pokemonTCGFetcher } from "../utils/fetcher"
+import { Pagination } from "../components/pagination"
+import { useCardPagination } from "../utils/usePagination"
 
 const Home = () => {
-  const [pageIndex, setPageIndex] = useState(1)
-  const { data: cards, error } = useSWR<CardsResponse>(
-    `/cards?page=${pageIndex}&pageSize=20`,
-    pokemonTCGFetcher
-  )
+  const { cards, pageIndex, setPageIndex, pageCount } = useCardPagination()
 
   return (
     <>
@@ -42,6 +35,12 @@ const Home = () => {
             </div>
           </div>
 
+          <Pagination
+            pageCount={pageCount}
+            pageIndex={pageIndex}
+            setPage={setPageIndex}
+          />
+
           {cards ? (
             <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
               {cards.data.map(card => (
@@ -55,8 +54,14 @@ const Home = () => {
               ))}
             </div>
           ) : (
-            <div>Empty</div>
+            <div className="py-5 mx-auto container">...Loading</div>
           )}
+
+          <Pagination
+            pageCount={pageCount}
+            pageIndex={pageIndex}
+            setPage={setPageIndex}
+          />
         </main>
       </div>
     </>
