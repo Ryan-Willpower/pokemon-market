@@ -5,8 +5,13 @@ import { CartItem } from "../cart-item"
 import { ShoppingCartButton } from "../shopping-cart-button"
 
 export function ShoppingCartOverlay() {
-  const { cart, isOpenCart, setOpenCartStatus, setCart } =
+  const { cart, isOpenCart, amount, setOpenCartStatus, setCart, setAmount } =
     useContext(CartContext)
+
+  const handleClearAllCart = () => {
+    setCart([])
+    setAmount({})
+  }
 
   return (
     <div
@@ -21,7 +26,7 @@ export function ShoppingCartOverlay() {
               <h1 className="font-medium text-2xl">Cart</h1>
               <button
                 className="underline text-tower-gray text-sm"
-                onClick={() => setCart([])}
+                onClick={handleClearAllCart}
               >
                 Clear all
               </button>
@@ -52,12 +57,24 @@ export function ShoppingCartOverlay() {
         <footer className="flex flex-col gap-4 border-t border-white-transparent pt-4">
           <div className="flex justify-between">
             <div className="text-sm text-tower-gray">Total card amount</div>
-            <div>6</div>
+            <div>
+              {Object.values(amount).reduce(
+                (prev, current) => prev + current.total,
+                0
+              )}
+            </div>
           </div>
 
           <div className="flex justify-between">
             <div className="text-sm text-tower-gray">Total price</div>
-            <div>$ 21,030.00</div>
+            <div>
+              ${" "}
+              {Object.values(amount).reduce(
+                (prev, current) =>
+                  prev + Number((current.price * current.total).toFixed(2)),
+                0
+              )}
+            </div>
           </div>
 
           <button className="w-full py-3 rounded-lg bg-burnt-sienna text-sm">

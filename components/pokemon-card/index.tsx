@@ -8,10 +8,19 @@ import "./index.module.scss"
 import type { PokemonCardProps } from "./type"
 
 export function PokemonCard({ card }: PokemonCardProps) {
-  const { setCart } = useContext(CartContext)
+  const { setCart, setAmount } = useContext(CartContext)
 
   const handleAddCardToShoppingCart = () => {
     setCart(prev => [...prev, card])
+
+    setAmount(prev => ({
+      ...prev,
+      [card.id]: {
+        total: 1,
+        inStock: card.set.total,
+        price: card.cardmarket.prices.averageSellPrice,
+      },
+    }))
   }
 
   return (
