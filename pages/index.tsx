@@ -1,14 +1,25 @@
 import Head from "next/head"
+import dynamic from "next/dynamic"
 import { useContext } from "react"
 
 import { Filter, FilterDropdownPosition } from "../components/filter"
 import { PokemonCard } from "../components/pokemon-card"
 import { Pagination } from "../components/pagination"
 import { useCardPagination } from "../utils/usePagination"
-import { ShoppingCartOverlay } from "../components/shopping-cart-overlay"
 import { SearchBar } from "../components/searchbar"
 import { ShoppingCartButton } from "../components/shopping-cart-button"
 import { CartContext } from "../utils/cart"
+
+const ShoppingCartOverlay = dynamic(
+  () => {
+    const module = import("../components/shopping-cart-overlay").then(
+      m => m.ShoppingCartOverlay
+    )
+
+    return module
+  },
+  { ssr: false }
+)
 
 const Home = () => {
   const {
