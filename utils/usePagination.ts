@@ -29,7 +29,7 @@ export function useCardPagination() {
     }
 
     if (filter.type) {
-      queryList.push(`type:"${filter.type}"`)
+      queryList.push(`types:"${filter.type}"`)
     }
 
     if (filter.rarity) {

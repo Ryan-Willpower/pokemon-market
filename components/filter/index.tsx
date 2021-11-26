@@ -20,9 +20,16 @@ export function Filter({
   const [selectedFilter, setFilter] = useState<string>()
 
   const handleFilterChange = (item: string) => {
-    setFilter(item)
-    onUpdateFilter(item)
+    const filter = item !== "-" ? item : ""
+    const displayText = item !== "-" ? item : name
+
+    setFilter(displayText)
+    onUpdateFilter(filter)
   }
+
+  // if user select "-", filter should be reset
+  // Sometimes, the data has some duplicate value, so they will be removed
+  const filterValue = ["-", ...new Set(data)]
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -55,7 +62,7 @@ export function Filter({
               : "origin-top-right right-0"
           } absolute z-10 bg-steel-gray border border-bright-gray text-white rounded-lg overflow-hidden max-h-32 w-52 overflow-y-scroll flex flex-col mt-3`}
         >
-          {data.map(item => (
+          {filterValue.map(item => (
             <Menu.Item key={item}>
               <span
                 className="cursor-pointer font-poppins border border-bright-gray p-3"
