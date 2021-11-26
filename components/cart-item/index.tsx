@@ -57,7 +57,7 @@ export function CartItem({ item }: CartItemProps) {
         <div className="w-full flex flex-col gap-2">
           <p>{item.name}</p>
           <p className="text-tower-gray text-sm">
-            $ {item.cardmarket.prices.averageSellPrice}
+            $ {item.cardmarket?.prices.averageSellPrice}
           </p>
         </div>
         <div className="w-2/12 sm:w-3/12">

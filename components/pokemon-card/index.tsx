@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useContext } from "react"
+import { CardMarket } from "../../@types/pokemon"
 
 import { CartContext } from "../../utils/cart"
 import { AddToCartButton } from "../add-to-cart-button"
@@ -10,6 +11,10 @@ export function PokemonCard({ card }: PokemonCardProps) {
   const { setCart, setAmount } = useContext(CartContext)
 
   const handleAddCardToShoppingCart = () => {
+    if (!card.cardmarket) {
+      return
+    }
+
     setCart(prev => [...prev, card])
 
     setAmount(prev => ({
@@ -17,7 +22,7 @@ export function PokemonCard({ card }: PokemonCardProps) {
       [card.id]: {
         total: 1,
         inStock: card.set.total,
-        price: card.cardmarket.prices.averageSellPrice,
+        price: (card.cardmarket as CardMarket).prices.averageSellPrice,
       },
     }))
   }
@@ -39,7 +44,7 @@ export function PokemonCard({ card }: PokemonCardProps) {
           {card.name}
         </h1>
         <div className="flex justify-center gap-3 text-tower-gray w-full text-sm pb-2">
-          <p>$ {card.cardmarket.prices.averageSellPrice}</p>
+          <p>$ {card.cardmarket?.prices?.averageSellPrice || "-"}</p>
           {card.set.total > 0 ? (
             <p>{card.set.total} Card(s)</p>
           ) : (
@@ -47,7 +52,7 @@ export function PokemonCard({ card }: PokemonCardProps) {
           )}
         </div>
         <AddToCartButton
-          isDisable={card.set.total <= 0}
+          isDisable={card.set.total <= 0 || !card.cardmarket}
           onClick={handleAddCardToShoppingCart}
         />
       </div>

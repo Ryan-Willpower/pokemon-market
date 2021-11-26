@@ -32,7 +32,7 @@ export interface Price {
 }
 
 export interface Card extends PokemonTCG.Card {
-  cardmarket: CardMarket
+  cardmarket?: CardMarket
 }
 
 export interface CardsResponse extends Pagination {
